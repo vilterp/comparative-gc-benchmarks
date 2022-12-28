@@ -1,4 +1,4 @@
-module RBTreeBenchmarkJulia
+module RBTreeBenchmark
 
 # Copied from https://raw.githubusercontent.com/JuliaCI/GCBenchmarks/main/benches/slow/rb_tree/rb_tree.jl
 
@@ -68,7 +68,7 @@ struct PointByY
 end
 Base.isless(a::PointByY, b::PointByY) = isless(a.p.y, b.p.y)
 
-function tvbench(; N = 100_000_000, min_seconds = 0, max_seconds = 600)
+function tvbench(; max_count = 10_000_000, queue_size = 10_000_000, min_seconds = 0, max_seconds = 600)
     @assert min_seconds <= max_seconds
     GC.enable_logging()
 
@@ -86,7 +86,7 @@ function tvbench(; N = 100_000_000, min_seconds = 0, max_seconds = 600)
         push!(xtree, PointByX(p))
         push!(ytree, PointByY(p))
 
-        if length(queue) > N
+        if length(queue) > queue_size
             p = dequeue!(queue)
             delete!(xtree, PointByX(p))
             delete!(ytree, PointByY(p))
@@ -113,8 +113,8 @@ function tvbench(; N = 100_000_000, min_seconds = 0, max_seconds = 600)
             @show count
             GC.gc()
         end
-        elapsed = time() - t0
-        if (elapsed >= min_seconds) && ((count >= N) || (elapsed >= max_seconds))
+        if count == max_count
+            println("hit max_count; stopping", count, max_count)
             break
         end
     end

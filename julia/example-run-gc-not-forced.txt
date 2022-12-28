@@ -1,0 +1,14 @@
+julia> @time RBTreeBenchmark.tvbench()
+count = 1000000
+count = 2000000
+count = 3000000
+count = 4000000
+count = 5000000
+count = 6000000
+count = 7000000
+count = 8000000
+count = 9000000
+count = 10000000
+hit max_count; stopping1000000010000000
+ 68.324959 seconds (50.02 M allocations: 1.566 GiB)
+
