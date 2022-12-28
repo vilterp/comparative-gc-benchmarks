@@ -1,0 +1,41 @@
+$ time make run
+javac -d out src/foo/Main.java src/foo/Point.java
+java -cp out -verbosegc foo.Main
+[0.006s][info][gc] Using G1
+[0.235s][info][gc] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 27M->26M(520M) 18.812ms
+[0.422s][info][gc] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 46M->47M(520M) 28.985ms
+[0.629s][info][gc] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 67M->69M(520M) 26.891ms
+[0.860s][info][gc] GC(3) Pause Young (Normal) (G1 Evacuation Pause) 89M->91M(520M) 32.339ms
+[1.129s][info][gc] GC(4) Pause Young (Normal) (G1 Evacuation Pause) 111M->113M(1044M) 31.337ms
+[1.795s][info][gc] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 161M->163M(1044M) 51.841ms
+count 1000000
+[2.487s][info][gc] GC(6) Pause Young (Normal) (G1 Evacuation Pause) 207M->210M(1044M) 70.884ms
+[3.197s][info][gc] GC(7) Pause Young (Normal) (G1 Evacuation Pause) 254M->259M(1044M) 82.013ms
+[3.972s][info][gc] GC(8) Pause Young (Normal) (G1 Evacuation Pause) 303M->307M(2088M) 65.366ms
+count 2000000
+[5.603s][info][gc] GC(9) Pause Young (Normal) (G1 Evacuation Pause) 403M->405M(2088M) 119.673ms
+count 3000000
+[7.071s][info][gc] GC(10) Pause Young (Normal) (G1 Evacuation Pause) 493M->499M(2088M) 116.648ms
+[8.579s][info][gc] GC(11) Pause Young (Normal) (G1 Evacuation Pause) 587M->595M(2088M) 120.322ms
+count 4000000
+[10.289s][info][gc] GC(12) Pause Young (Normal) (G1 Evacuation Pause) 683M->689M(2724M) 118.564ms
+[12.736s][info][gc] GC(13) Pause Young (Normal) (G1 Evacuation Pause) 809M->819M(2724M) 151.299ms
+count 5000000
+[15.008s][info][gc] GC(14) Pause Young (Normal) (G1 Evacuation Pause) 935M->945M(2724M) 180.149ms
+count 6000000
+[17.407s][info][gc] GC(15) Pause Young (Normal) (G1 Evacuation Pause) 1061M->1071M(2724M) 175.432ms
+count 7000000
+[19.843s][info][gc] GC(16) Pause Young (Normal) (G1 Evacuation Pause) 1187M->1195M(3008M) 172.231ms
+count 8000000
+[22.775s][info][gc] GC(17) Pause Young (Normal) (G1 Evacuation Pause) 1323M->1333M(3008M) 205.209ms
+[25.740s][info][gc] GC(18) Pause Young (Normal) (G1 Evacuation Pause) 1461M->1473M(3008M) 220.531ms
+count 9000000
+[28.682s][info][gc] GC(19) Pause Young (Concurrent Start) (G1 Evacuation Pause) 1601M->1611M(3008M) 206.106ms
+[28.682s][info][gc] GC(20) Concurrent Mark Cycle
+count 10000000
+[30.666s][info][gc] GC(20) Pause Remark 1667M->1667M(3008M) 0.588ms
+^C[31.131s][info][gc] GC(20) Concurrent Mark Cycle 2449.193ms
+make: *** [run] Error 130
+
+make run  84.95s user 1.37s system 271% cpu 31.762 total
+java git:(master) ✗ 
