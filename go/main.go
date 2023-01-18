@@ -41,7 +41,7 @@ func tvbench(n int, minSecondsFull int, maxSeconds int, forcePauses bool) {
 		if queue.Size() == n {
 			reachedFullTime = time.Now()
 
-			fmt.Println("Reached full queue (", n, " elements):", reachedFullTime.Sub((startTime)))
+			fmt.Println("Reached full queue (", n, " elements): ", reachedFullTime.Sub((startTime)))
 		}
 		if queue.Size() > n {
 			fullTime := time.Now().Sub((reachedFullTime))

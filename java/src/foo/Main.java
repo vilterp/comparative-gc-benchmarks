@@ -37,7 +37,7 @@ public class Main {
             if (queue.size() == n) {
                 reachedFullTime = Instant.now();
                 Duration timeElapsed = Duration.between(startTime, reachedFullTime);
-                System.out.println("Reached full queue ("+ n +" elements):"+ durationString(timeElapsed));
+                System.out.println("Reached full queue ("+ n +" elements): "+ durationString(timeElapsed));
             }
             if (queue.size() > n) {
                 Instant now = Instant.now();

@@ -91,7 +91,7 @@ function tvbench(; N = 10_000_000, min_seconds_full = 120, max_seconds = 600, fo
         if length(queue) == N
             full_time = time()
 
-			println("Reached full queue (", N, " elements):", (full_time - t0), " seconds")
+			println("Reached full queue (", N, " elements): ", (full_time - t0), " seconds")
         end
         if length(queue) > N
             full_duration = time() - full_time

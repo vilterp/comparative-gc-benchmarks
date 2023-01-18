@@ -73,7 +73,7 @@ void tvbench(int N = 10000000, int min_seconds_full = 120, int max_seconds = 600
             full_time = high_resolution_clock::now();
             auto elapsed = duration_cast<seconds>(full_time - t0).count();
 
-			cout << "Reached full queue (" << N << " elements):" << elapsed << " seconds" << endl;
+			cout << "Reached full queue (" << N << " elements): " << elapsed << " seconds" << endl;
         }
         if (queue.size() > N) {
             auto now = high_resolution_clock::now();
