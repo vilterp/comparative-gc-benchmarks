@@ -46,7 +46,7 @@ func tvbench(n int, minSecondsFull int, maxSeconds int, forcePauses bool) {
 		if queue.Size() > n {
 			fullTime := time.Now().Sub((reachedFullTime))
 			if fullTime.Seconds() >= float64(minSecondsFull) {
-				return
+				break
 			}
 
 			pt, _ := queue.Dequeue()
@@ -77,4 +77,5 @@ func tvbench(n int, minSecondsFull int, maxSeconds int, forcePauses bool) {
 			}
 		}
 	}
+	fmt.Println("======= Done. =========")
 }

@@ -96,7 +96,7 @@ function tvbench(; N = 10_000_000, min_seconds_full = 120, max_seconds = 600, fo
         if length(queue) > N
             full_duration = time() - full_time
             if (full_duration >= min_seconds_full)
-                return
+                break
             end
 
             p = dequeue!(queue)
@@ -139,6 +139,7 @@ function tvbench(; N = 10_000_000, min_seconds_full = 120, max_seconds = 600, fo
             end
         end
     end
+    println("======= Done. =========")
 end
 
 # tvbench()

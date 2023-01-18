@@ -137,4 +137,5 @@ int main() {
     auto ti = high_resolution_clock::now();
     auto elapsed = duration_cast<seconds>(ti - t0).count();
     cout << "Fully finished: " << elapsed << " seconds" << endl;
+    cout << "======= Done. =========" << endl;
 }

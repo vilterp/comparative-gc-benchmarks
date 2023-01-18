@@ -43,7 +43,7 @@ public class Main {
                 Instant now = Instant.now();
                 Duration fullTime = Duration.between(reachedFullTime, Instant.now());
                 if (fullTime.toSeconds() >= minSecondsFull) {
-                    return;
+                    break;
                 }
 
                 p = queue.remove();
@@ -70,11 +70,12 @@ public class Main {
                 System.out.println("elapsed: "+ durationString(elapsed));
                 if (elapsed.toSeconds() >= maxSeconds) {
                     System.out.println("Exceeded max seconds: "+ durationString(elapsed));
-                    return;
+                    break;
                 }
             }
         }
 
+        System.out.println("======= Done. =========");
     }
 
     private static String durationString(Duration duration) {
