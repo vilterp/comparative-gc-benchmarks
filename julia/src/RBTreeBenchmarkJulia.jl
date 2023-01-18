@@ -68,11 +68,13 @@ struct PointByY
 end
 Base.isless(a::PointByY, b::PointByY) = isless(a.p.y, b.p.y)
 
-function tvbench(; N = 100_000_000, min_seconds = 0, max_seconds = 600)
-    @assert min_seconds <= max_seconds
+function tvbench(; N = 10_000_000, min_seconds_full = 120, max_seconds = 600, force_pauses = true)
+    @assert min_seconds_full <= max_seconds
     GC.enable_logging()
 
+    local full_time
     t0 = time()
+
     queue = Queue{Point}()
     xtree = RBTree{PointByX}()
     ytree = RBTree{PointByY}()
@@ -86,7 +88,17 @@ function tvbench(; N = 100_000_000, min_seconds = 0, max_seconds = 600)
         push!(xtree, PointByX(p))
         push!(ytree, PointByY(p))
 
+        if length(queue) == N
+            full_time = time()
+
+			println("Reached full queue (", N, " elements):", (full_time - t0), " seconds")
+        end
         if length(queue) > N
+            full_duration = time() - full_time
+            if (full_duration >= min_seconds_full)
+                return
+            end
+
             p = dequeue!(queue)
             delete!(xtree, PointByX(p))
             delete!(ytree, PointByY(p))
@@ -110,12 +122,20 @@ function tvbench(; N = 100_000_000, min_seconds = 0, max_seconds = 600)
         =#
         nm, nr = fldmod(count, 1_000_000)
         if nr == 0
-            @show count
-            GC.gc()
-        end
-        elapsed = time() - t0
-        if (elapsed >= min_seconds) && ((count >= N) || (elapsed >= max_seconds))
-            break
+            println("-------------")
+
+            if force_pauses
+                t = @timed GC.gc()
+                println("gc time: $(t.time) seconds")
+            end
+            println("count: ", count)
+            println("queue: ", length(queue))
+
+            elapsed = time() - t0
+            cout << "elapsed:" << elapsed << " seconds" << endl;
+            if (elapsed >= max_seconds)
+                break
+            end
         end
     end
 end
