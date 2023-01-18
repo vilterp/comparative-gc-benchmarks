@@ -4,4 +4,4 @@ build: main.go
 
 .PHONY: run
 run: build
-	go run main.go
+	GODEBUG=gctrace=1 go run main.go
