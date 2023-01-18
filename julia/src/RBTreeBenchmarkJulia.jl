@@ -132,8 +132,9 @@ function tvbench(; N = 10_000_000, min_seconds_full = 120, max_seconds = 600, fo
             println("queue: ", length(queue))
 
             elapsed = time() - t0
-            cout << "elapsed:" << elapsed << " seconds" << endl;
+            println("elapsed: $elapsed seconds")
             if (elapsed >= max_seconds)
+                println("Exceeded max seconds: $elapsed seconds")
                 break
             end
         end
