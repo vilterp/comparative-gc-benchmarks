@@ -1,0 +1,25 @@
+$ time make run-serial-gc
+javac -d out src/foo/Main.java src/foo/Point.java
+java -cp out -verbosegc -XX:+UseSerialGC foo.Main
+[0.006s][info][gc] Using Serial
+[2.220s][info][gc] GC(0) Pause Young (Allocation Failure) 137M->126M(494M) 580.922ms
+count 1000000
+[5.156s][info][gc] GC(1) Pause Young (Allocation Failure) 262M->262M(494M) 847.405ms
+count 2000000
+[8.626s][info][gc] GC(2) Pause Young (Allocation Failure) 399M->399M(535M) 867.623ms
+[10.191s][info][gc] GC(3) Pause Full (Allocation Failure) 399M->399M(923M) 1564.595ms
+count 3000000
+count 4000000
+[16.722s][info][gc] GC(4) Pause Young (Allocation Failure) 637M->632M(923M) 1469.198ms
+count 5000000
+[24.352s][info][gc] GC(5) Pause Young (Allocation Failure) 886M->886M(1141M) 1715.831ms
+[27.970s][info][gc] GC(6) Pause Full (Allocation Failure) 886M->886M(2066M) 3617.447ms
+count 6000000
+count 7000000
+count 8000000
+count 9000000
+[45.823s][info][gc] GC(7) Pause Young (Allocation Failure) 1425M->1425M(2066M) 3646.016ms
+count 10000000
+^Cmake: *** [run-serial-gc] Error 130
+
+make run-serial-gc  50.43s user 1.16s system 101% cpu 50.845 total

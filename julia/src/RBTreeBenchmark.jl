@@ -1,4 +1,4 @@
-module RBTreeBenchmarkJulia
+module RBTreeBenchmark
 
 # Copied from https://raw.githubusercontent.com/JuliaCI/GCBenchmarks/main/benches/slow/rb_tree/rb_tree.jl
 

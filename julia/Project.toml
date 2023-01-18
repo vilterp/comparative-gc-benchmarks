@@ -1,4 +1,4 @@
-name = "RBTreeBenchmarkJulia"
+name = "RBTreeBenchmark"
 uuid = "cc393383-1b94-4e67-b5e0-041cb4b0e18f"
 authors = ["Pete Vilter <pete.vilter@gmail.com>"]
 version = "0.1.0"

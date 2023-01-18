@@ -1,0 +1,23 @@
+$ time go run main.go
+gc time: 412.401032ms
+count  1000000
+gc time: 1.134838991s
+count  2000000
+gc time: 2.211029384s
+count  3000000
+gc time: 3.629548878s
+count  4000000
+gc time: 4.54711071s
+count  5000000
+gc time: 5.973603183s
+count  6000000
+gc time: 6.852780759s
+count  7000000
+gc time: 8.022327474s
+count  8000000
+gc time: 9.395392602s
+count  9000000
+gc time: 10.615027143s
+count  10000000
+^Csignal: interrupt
+go run main.go  102.94s user 1.83s system 102% cpu 1:42.69 total

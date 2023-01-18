@@ -1,3 +1,3 @@
 .PHONY: run
 run:
-	julia --project -E 'using RBTreeBenchmarkJulia; RBTreeBenchmarkJulia.tvbench()'
+	julia --project -E 'using RBTreeBenchmark; RBTreeBenchmark.tvbench()'

@@ -1,0 +1,35 @@
+julia> @time RBTreeBenchmark.tvbench()
+GC: pause 973.33ms. collected 3369.645808MB. incr 
+count = 1000000
+GC: pause 587.81ms. collected 0.049680MB. full recollect
+GC: pause 649.81ms. collected 0.001104MB. incr 
+GC: pause 787.35ms. collected 18446744073709.550781MB. full 
+count = 2000000
+GC: pause 1272.21ms. collected 0.000488MB. full recollect
+GC: pause 1314.26ms. collected 0.001312MB. incr 
+count = 3000000
+GC: pause 1416.50ms. collected 0.006720MB. full recollect
+GC: pause 2139.86ms. collected 0.001928MB. full 
+count = 4000000
+GC: pause 2782.57ms. collected 18446744073709.550781MB. full recollect
+GC: pause 2815.04ms. collected 0.001312MB. full 
+count = 5000000
+GC: pause 3234.88ms. collected 0.000472MB. full recollect
+GC: pause 3507.28ms. collected 0.000000MB. full 
+count = 6000000
+GC: pause 4382.19ms. collected 0.000472MB. full recollect
+GC: pause 4241.15ms. collected 0.000000MB. full 
+count = 7000000
+GC: pause 4815.81ms. collected 0.000232MB. full recollect
+GC: pause 6169.21ms. collected 0.000240MB. full 
+count = 8000000
+GC: pause 6541.05ms. collected 18446744073709.550781MB. full recollect
+GC: pause 7208.51ms. collected 0.003552MB. full 
+count = 9000000
+GC: pause 7190.90ms. collected 18446744073709.546875MB. full recollect
+GC: pause 7870.98ms. collected 0.003696MB. full 
+count = 10000000
+GC: pause 7254.70ms. collected 18446744073709.550781MB. full recollect
+GC: pause 7159.00ms. collected 0.003024MB. full 
+hit max_count; stopping1000000010000000
+156.738512 seconds (50.02 M allocations: 1.566 GiB, 53.79% gc time)
